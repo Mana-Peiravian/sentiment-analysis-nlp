@@ -6,36 +6,77 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
-  <title>Sentiment Analysis — TF-IDF + Logistic Regression</title>
+  <title>Sentiment — TF-IDF + Logistic Regression</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="container">
-    <h1>📝 Sentiment Analysis</h1>
-
-    <div class="card">
-      <label for="text">Enter text</label>
-      <textarea id="text" rows="5" placeholder="Type a sentence…"></textarea>
-
-      <div class="row">
-        <button id="analyze">Analyze</button>
-        <button id="clear" class="ghost">Clear</button>
-      </div>
-
-      <div id="status" class="status">Loading model…</div>
-
-      <div id="result" class="result hidden">
-        <div class="prob-row">
-          <div>Prediction:</div><strong id="pred"></strong>
-        </div>
-        <div id="probs" class="probs"></div>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">🙂</div>
+      <div class="titles">
+        <h1>Sentiment Classifier</h1>
+        <p>TF-IDF + Logistic Regression · Client-side</p>
       </div>
     </div>
+    <div class="status-chip" id="model-status" aria-live="polite">
+      <span class="dot dot--loading"></span>
+      <span class="txt">Loading model…</span>
+    </div>
+  </header>
 
-    <footer>
-      <small>LR + TF-IDF (client-side) • GitHub Pages ready</small>
-    </footer>
+  <main class="container">
+    <section class="card">
+      <div class="card__header">
+        <h2>Analyze text</h2>
+        <div class="hint">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run</div>
+      </div>
+
+      <label for="text" class="sr-only">Enter text to analyze</label>
+      <textarea id="text" rows="5" placeholder="Type a sentence…"></textarea>
+
+      <div class="chips" id="samples">
+        <button class="chip" data-text="I love this airline, the crew was amazing!">Positive sample</button>
+        <button class="chip" data-text="Boarding started at 6 pm, we departed at 6:30.">Neutral sample</button>
+        <button class="chip" data-text="This flight was delayed again. Terrible support.">Negative sample</button>
+      </div>
+
+      <div class="actions">
+        <button id="analyze" disabled>
+          <span class="btn-icon">▶</span> Analyze
+        </button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="card" id="result-card" hidden>
+      <div class="result-head">
+        <div class="pill" id="pred-pill">Prediction: —</div>
+        <div class="subtle" id="confidence">—</div>
+      </div>
+
+      <div class="probs" id="probs"></div>
+
+      <div class="explain">
+        <h3>Top cues in this text</h3>
+        <p class="subtle">Words that most pushed the model toward the predicted class.</p>
+        <div class="cues" id="cues"></div>
+      </div>
+    </section>
+
+    <section class="card card--muted">
+      <div class="meta">
+        <div><strong>Vocabulary:</strong> <span id="meta-vocab">—</span> terms</div>
+        <div><strong>Classes:</strong> <span id="meta-classes">—</span></div>
+        <div><strong>Normalization:</strong> L2 · <strong>IDF:</strong> on</div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <small>Works offline on GitHub Pages · No server required</small>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <script src="./app.js"></script>
 </body>
