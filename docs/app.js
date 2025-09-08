@@ -158,23 +158,12 @@ async function ensureBERT(){
   if (BERT) return;
   try{
     setStatus("loading","Loading BERT…");
-
-    // Pin v2 to avoid API drift
-    transformers = await import("https://cdn.jsdelivr.net/npm/@xenova/transformers@2");
+    transformers = await import("https://cdn.jsdelivr.net/npm/@xenova/transformers");
     const { env, pipeline } = transformers;
-
-    // ✅ Force remote loading
-    env.localModelPath = null;                 
     env.allowRemoteModels = true;
-    env.remoteModelPath = "https://huggingface.co";
-    env.useBrowserCache = true;                // cache in browser
-
-    // 3-class, browser-ready ONNX mirror
-    const MODEL_ID = "Xenova/twitter-roberta-base-sentiment-latest";
-
-    // Quantized = smaller downloads, faster CPU inference
-    BERT = await pipeline("text-classification", MODEL_ID, { quantized: true });
-
+    env.useBrowserCache = true;       // cache model files in the browser
+    // Optional: env.backends.onnx.wasm.numThreads = 1; // tweak if needed
+    BERT = await pipeline("text-classification", BERT_MODEL_ID);
     setStatus("ok","BERT ready");
     setMeta("BERT", "—", "negative · neutral · positive");
     analyzeBtn.disabled = false;
@@ -184,7 +173,6 @@ async function ensureBERT(){
     toast("Failed to load BERT");
   }
 }
-
 function remapBertLabels(arr){
   // twitter-roberta-base-sentiment labels: LABEL_0 neg, LABEL_1 neu, LABEL_2 pos
   const map = { LABEL_0: "negative", LABEL_1: "neutral", LABEL_2: "positive",
