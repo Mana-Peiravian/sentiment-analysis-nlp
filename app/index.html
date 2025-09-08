@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sentiment Analysis</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Sentiment Analysis — TF-IDF + Logistic Regression</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <h1>📝 Sentiment Analysis</h1>
-  <textarea id="inputText" rows="4" cols="50"></textarea><br>
-  <button onclick="analyze()">Analyze</button>
-  <h2 id="result"></h2>
-  <script src="app.js"></script>
+  <main class="container">
+    <h1>📝 Sentiment Analysis</h1>
+
+    <div class="card">
+      <label for="text">Enter text</label>
+      <textarea id="text" rows="5" placeholder="Type a sentence…"></textarea>
+
+      <div class="row">
+        <button id="analyze">Analyze</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+
+      <div id="status" class="status">Loading model…</div>
+
+      <div id="result" class="result hidden">
+        <div class="prob-row">
+          <div>Prediction:</div><strong id="pred"></strong>
+        </div>
+        <div id="probs" class="probs"></div>
+      </div>
+    </div>
+
+    <footer>
+      <small>LR + TF-IDF (client-side) • GitHub Pages ready</small>
+    </footer>
+  </main>
+
+  <script src="./app.js"></script>
 </body>
 </html>

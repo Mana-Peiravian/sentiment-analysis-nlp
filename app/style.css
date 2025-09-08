@@ -1,0 +1,19 @@
+:root { --bg:#0b0f14; --card:#111827; --muted:#94a3b8; --txt:#e5e7eb; --accent:#60a5fa; }
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+.container{max-width:760px;margin:40px auto;padding:0 16px}
+h1{font-weight:700;letter-spacing:.3px}
+.card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+label{display:block;margin-bottom:8px;color:var(--muted)}
+textarea{width:100%;border:1px solid #1f2937;background:#0f172a;color:var(--txt);border-radius:12px;padding:12px;resize:vertical}
+.row{display:flex;gap:10px;margin-top:12px}
+button{border:none;background:var(--accent);color:#0b1220;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer}
+button.ghost{background:transparent;color:var(--muted);border:1px solid #334155}
+button:disabled{opacity:.6;cursor:not-allowed}
+.status{margin-top:12px;color:var(--muted)}
+.result{margin-top:16px}
+.hidden{display:none}
+.prob-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.probs{margin-top:8px;display:grid;gap:6px}
+.bar{height:10px;background:#0f172a;border-radius:999px;overflow:hidden;border:1px solid #223}
+.fill{height:100%;background:var(--accent)}
+footer{margin-top:20px;color:var(--muted);text-align:center}
