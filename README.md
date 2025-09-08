@@ -17,7 +17,8 @@ This project predicts sentiment (positive, negative, neutral) from text using tw
 
 /notebooks        # Jupyter notebooks for training
 /models           # Saved models (logreg + tfidf)
-/app             # Frontend app for GitHub Pages
+/docs             # Frontend app for GitHub Pages
+/data             # Dataset from Kaggle
 README.md         # Project documentation
 
 ````
