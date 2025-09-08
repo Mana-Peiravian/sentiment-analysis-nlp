@@ -9,8 +9,8 @@ This project predicts sentiment (positive, negative, neutral) from text using tw
 - Logistic Regression baseline model
 - HuggingFace BERT sentiment classifier
 - Deployed demo:
-  - Logistic Regression → GitHub Pages
-  - BERT → HuggingFace Spaces
+  - Logistic Regression 
+  - BERT 
 
 ## 📂 Project Structure
 ```
@@ -29,7 +29,7 @@ README.md         # Project documentation
 ## 🔧 Installation
 ```bash
 pip install -r requirements.txt
-````
+```
 
 ## ▶️ Usage
 
@@ -42,26 +42,14 @@ jupyter notebook notebooks/sentiment_baseline.ipynb
 Run BERT sentiment classifier:
 
 ```python
-from transformers import pipeline
-classifier = pipeline("sentiment-analysis")
-classifier("This flight was awesome!")
+jupyter notebook notebooks/sentiment_bert.ipynb
 ```
 
 ## 🌍 Deployment
 
-* Logistic Regression demo hosted on GitHub Pages.
-* BERT model deployed on HuggingFace Spaces.
+* Logistic Regression and BERT model demo hosted on GitHub Pages.
 
 ## 📊 Results
 
 * Logistic Regression: \~80% accuracy
 * BERT: \~90%+ accuracy
-
-```
-
----
-
-✨ Deliverables after finishing:  
-- GitHub repo with notebook + models.  
-- GitHub Pages site with interactive demo.  
-- HuggingFace Space (optional, but strong bonus).  
