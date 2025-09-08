@@ -41,7 +41,7 @@ jupyter notebook notebooks/sentiment_baseline.ipynb
 
 Run BERT sentiment classifier:
 
-```python
+```bash
 jupyter notebook notebooks/sentiment_bert.ipynb
 ```
 
