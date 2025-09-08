@@ -1,6 +1,6 @@
 // ========= CONFIG =========
 const LR_MODEL_URL = "./model/model.json"; // keep relative for GitHub Pages
-const BERT_MODEL_ID = "Xenova/twitter-roberta-base-sentiment"; // 3-class: neg/neu/pos
+const BERT_MODEL_ID = "Xenova/twitter-roberta-base-sentiment-latest"; // 3-class: neg/neu/pos
 
 // ========= DOM =========
 const $  = (s) => document.querySelector(s);
