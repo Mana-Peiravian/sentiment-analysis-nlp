@@ -1,0 +1,17 @@
+# Core ML stack (training + export)
+numpy
+pandas
+scipy
+scikit-learn
+joblib
+
+# Notebooks
+jupyter
+
+# Optional: Python-side BERT experiments (NOT required for your GitHub Pages app)
+# transformers
+# torch
+# accelerate
+
+# Optional: download dataset via Kaggle API
+# kaggle
