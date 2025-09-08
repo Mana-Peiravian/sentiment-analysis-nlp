@@ -6,7 +6,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
-  <title>Sentiment — TF-IDF + Logistic Regression</title>
+  <title>Sentiment — LR & BERT (Client-side)</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -15,16 +15,21 @@
       <div class="logo">🙂</div>
       <div class="titles">
         <h1>Sentiment Classifier</h1>
-        <p>TF-IDF + Logistic Regression · Client-side</p>
+        <p>TF-IDF + Logistic Regression &nbsp;·&nbsp; In-browser BERT</p>
       </div>
     </div>
     <div class="status-chip" id="model-status" aria-live="polite">
       <span class="dot dot--loading"></span>
-      <span class="txt">Loading model…</span>
+      <span class="txt">Loading LR…</span>
     </div>
   </header>
 
   <main class="container">
+    <nav class="tabs" role="tablist" aria-label="Model selector">
+      <button role="tab" class="tab active" data-mode="lr" aria-selected="true">LogReg (Offline)</button>
+      <button role="tab" class="tab" data-mode="bert" aria-selected="false">BERT (In-browser)</button>
+    </nav>
+
     <section class="card">
       <div class="card__header">
         <h2>Analyze text</h2>
@@ -58,26 +63,26 @@
 
       <div class="explain">
         <h3>Top cues in this text</h3>
-        <p class="subtle">Words that most pushed the model toward the predicted class.</p>
+        <p class="subtle">LogReg: token weights · BERT: token saliency (approx.)</p>
         <div class="cues" id="cues"></div>
       </div>
     </section>
 
     <section class="card card--muted">
       <div class="meta">
-        <div><strong>Vocabulary:</strong> <span id="meta-vocab">—</span> terms</div>
+        <div><strong>Mode:</strong> <span id="meta-mode">LR</span></div>
+        <div><strong>Vocabulary:</strong> <span id="meta-vocab">—</span></div>
         <div><strong>Classes:</strong> <span id="meta-classes">—</span></div>
-        <div><strong>Normalization:</strong> L2 · <strong>IDF:</strong> on</div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <small>Works offline on GitHub Pages · No server required</small>
+    <small>Works on GitHub Pages · No server required</small>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="./app.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>

@@ -29,6 +29,10 @@
   .hint{color:var(--muted);font-size:12px}
   .card--muted{opacity:.9}
   
+  .tabs{display:flex;gap:8px;margin:8px 0 16px}
+  .tab{background:#0a1220;border:1px solid #22324a;color:#c9d6ee;padding:8px 12px;border-radius:999px;cursor:pointer}
+  .tab.active{background:var(--accent);color:#071221;border-color:#1c2a45}
+  
   textarea{width:100%;background:#0a1220;border:1px solid #243047;border-radius:12px;color:var(--txt);padding:12px;min-height:120px;resize:vertical}
   textarea::placeholder{color:#6b7a90}
   
@@ -63,4 +67,6 @@
   .site-footer{padding:16px;text-align:center;color:var(--muted);border-top:1px solid var(--line);margin-top:14px}
   
   .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#0b1221;border:1px solid #26334d;color:#dbe7ff;padding:10px 14px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  
+  .hidden{display:none}
   
